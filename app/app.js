@@ -1,6 +1,7 @@
 const express = require('express'),
  path = require('path'),
  logger = require('morgan'),
+ mongoose = require('mongoose'),
  bodyParser = require('body-parser'),
  test = require('./routes/test'),
  app = express();
@@ -11,6 +12,12 @@ app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use('/test', test);
+
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/mean-angular5', {
+  promiseLibrary: require('bluebird')
+}).then(() =>  console.log('db connected'))
+  .catch((err) => console.error(err));
 
 app.use((req, res, next) => {
   const err = new Error('Not Found');
