@@ -1,4 +1,5 @@
 const express = require('express'),
+ config = require('./config/database'),
  path = require('path'),
  logger = require('morgan'),
  mongoose = require('mongoose'),
@@ -16,7 +17,7 @@ app.use('/test', test);
 app.use('/users', user);
 
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/erste', {
+mongoose.connect(config.database, {
   promiseLibrary: require('bluebird')
 }).then(() =>  console.log('db connected'))
   .catch((err) => console.error(err));
