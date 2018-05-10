@@ -12,9 +12,9 @@ export class UserListComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.usersService.getAllUsers()
-      .subscribe((data: User[]) => {
-        this.users = data;
-      });
+    // this.usersService.getAllUsers()
+    //   .subscribe((data: User[]) => {
+    //     this.users = data;
+    //   });
   }
 }

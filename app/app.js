@@ -4,7 +4,8 @@ const express = require('express'),
  logger = require('morgan'),
  mongoose = require('mongoose'),
  bodyParser = require('body-parser'),
- test = require('./routes/test'),
+ passport = require('passport'),
+ api = require('./routes/api'),
  user = require('./routes/user'),
  app = express();
 
@@ -13,7 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', express.static(path.join(__dirname, 'dist')));
-app.use('/test', test);
+app.use(passport.initialize());
+app.use('/api', api);
 app.use('/users', user);
 
 mongoose.Promise = require('bluebird');
