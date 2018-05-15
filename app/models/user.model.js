@@ -1,10 +1,6 @@
 const mongoose = require('mongoose'),
-  bcrypt = require('bcrypt-nodejs'),
-  passport = require('passport'),
-  dbConfig = require('../config/database'),
-  passportConfig = require('../config/passport');
+  bcrypt = require('bcrypt-nodejs');
 
-passportConfig(passport);
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -24,7 +20,7 @@ UserSchema.pre('save', (next) => {
       if (err) {
         return next(err);
       }
-      bcrypt.hash(this.password, salt, null,  (err, hash) => {
+      bcrypt.hash(this.password, salt, null, (err, hash) => {
         if (err) {
           return next(err);
         }
