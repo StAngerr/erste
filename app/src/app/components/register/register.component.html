@@ -1,0 +1,15 @@
+<section class="registration">
+  <h3>Registration</h3>
+  <form (ngSubmit)="onSubmit()" #regForm="ngForm">
+    <label for=""><span>First name:</span>
+      <input [(ngModel)]="model.fistName" name="firstname" type="text">
+    </label>
+    <label> <span>Username: </span>
+      <input [(ngModel)]="model.username" type="text" placeholder="username" name="username" required>
+    </label>
+    <label><span>Password:</span>
+      <input [(ngModel)]="model.password" type="password" placeholder="password" name="password" required>
+    </label>
+    <input type="submit" value="Register">
+  </form>
+</section>
