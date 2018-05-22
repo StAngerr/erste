@@ -12,17 +12,19 @@ router.post('/signup', (req, res) => {
   if (!req.body.username || !req.body.password) {
     res.json({
       success: false,
-      msg: 'Failed login'
+      msg: 'Failed registration'
     });
   } else {
     const newUser = new User({
       username: req.body.username,
       password: req.body.password
     });
+
     newUser.save((err) => {
       if (err) {
         return res.json({
           success: false,
+          err,
           msg: 'Username already exists.'
         });
       }

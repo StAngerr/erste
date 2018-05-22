@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) {
   const saltRounds = 10;
   if (this.isModified('password') || this.isNew) {
     bcrypt.genSalt(saltRounds,  (err, salt) => {

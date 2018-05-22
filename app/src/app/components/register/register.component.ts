@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +8,21 @@ import { User } from '../../models/user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
+  public message: string;
+  constructor(
+    private userService: UsersService
+  ) {}
   public model: User = new User();
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.model);
+    this.userService.createNewUser(this.model).subscribe((resp: {
+      err: Object,
+      msg: string,
+      success: boolean
+    }) => {
+      this.message = resp.msg;
+    });
   }
 }
