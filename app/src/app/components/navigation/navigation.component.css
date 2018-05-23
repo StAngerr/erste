@@ -1,0 +1,18 @@
+nav {
+  width: 100%;
+  display: flex;
+}
+
+ul {
+  width: 80%;
+  list-style: none;
+}
+
+ul li {
+  display: inline-block;
+  width: 50px;
+}
+
+.account-block {
+  width: 20%;
+}
