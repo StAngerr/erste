@@ -19,4 +19,13 @@ export class UsersService {
     const userUrl: string = '/api/signup';
     return this.http.post(userUrl, user);
   }
+
+  /*
+  *
+  * */
+  login(user: User) {
+    const userUrl: string = '/api/login';
+    return this.http.post(userUrl, user);
+
+  }
 }

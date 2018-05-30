@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { home } from './components/home/home.routes';
 import { register } from './components/register/register.routes';
+import { login } from './components/login/login.routes';
 
 const defaultRouts = {
   path: '',
@@ -12,5 +13,6 @@ const defaultRouts = {
 export const appRoutes: Routes = [
   home,
   register,
+  login,
   defaultRouts
 ];

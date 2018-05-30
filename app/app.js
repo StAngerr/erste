@@ -11,12 +11,13 @@ const express = require('express'),
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(bodyParser.urlencoded({ 'extended' : 'false' }));
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', express.static(path.join(__dirname, 'dist')));
 app.use(passport.initialize());
 app.use('/api', api);
 app.use('/users', user);
+app.use('*', express.static(path.join(__dirname, 'dist')));
 
 mongoose.Promise = require('bluebird');
 mongoose.connect(config.database, {

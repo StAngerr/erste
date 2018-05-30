@@ -1,0 +1,13 @@
+<section class="login-section">
+  <h4>Login form:</h4>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <label> <span>Username:</span>
+      <input [(ngModel)]="model.username" placeholder="username" type="text" name="username"/>
+    </label>
+    <label> <span>Password:</span>
+      <input [(ngModel)]="model.password" placeholder="password" type="text" name="password"/>
+    </label>
+    <input type="submit" value="Login">
+  </form>
+  <p>{{resultMsg}}</p>
+</section>

@@ -1,0 +1,16 @@
+.login-section {
+  width: 100%;
+}
+
+.login-section form {
+  width: 40%;
+  height: 200px;
+  margin: 0 auto;
+}
+.login-section form input {
+  border: 1px solid #ccc;
+}
+.login-section form label {
+  display: block;
+}
+

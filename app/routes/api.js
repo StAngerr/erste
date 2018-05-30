@@ -47,7 +47,7 @@ router.post('/login', (req, res) => {
         msg: 'Bad username'
       });
     } else {
-      user.comparePassword(req.body.password, (err, isMatch) => {
+      user.comparePassword(req.body.password, user, (err, isMatch) => {
         if (isMatch && !err) {
           const token = jwt.sign(user.toJSON(), dbConfig.secret);
           res.json({
