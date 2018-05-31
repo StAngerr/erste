@@ -14,6 +14,10 @@ import { appRoutes } from './app.routes';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { httpInterceptorProviders } from './http-interceptors';
+import { GoodsComponent } from './components/goods/goods.component';
+import { AuthGuard } from './guards/auth-guard'
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { LoginComponent } from './components/login/login.component';
     NavigationComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    GoodsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +36,10 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      //{ enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [UsersService],
+  providers: [AuthGuard, AuthService, UsersService, httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

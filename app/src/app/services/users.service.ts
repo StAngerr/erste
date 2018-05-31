@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-//import { Observable } from  'rxjs/Observable';
-
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service';
 import { User } from  '../models/user';
+
+
 @Injectable()
 export class UsersService {
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+    ) { }
 
   getAllUsers() {
     const userUrl:string = '/users';
@@ -24,8 +27,6 @@ export class UsersService {
   *
   * */
   login(user: User) {
-    const userUrl: string = '/api/login';
-    return this.http.post(userUrl, user);
-
+    return this.authService.login(user);
   }
 }
