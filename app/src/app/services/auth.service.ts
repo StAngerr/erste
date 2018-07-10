@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { throwError } from 'rxjs';
+import { catchError } from  'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -15,8 +14,9 @@ export class AuthService {
   public login(user: User) {
     const userUrl: string = '/api/login';
     return this.http.post(userUrl, user)
-      .map(this.setSession)
-      .catch(this.handleError);
+      .pipe(
+        this.setSession,
+        catchError(this.handleError));
   }
 
   public isLoggedIn() {
@@ -29,6 +29,6 @@ export class AuthService {
   }
 
   private handleError(err) {
-    return Observable.throw(err.status)
+    return throwError(err.status)
   }
 }

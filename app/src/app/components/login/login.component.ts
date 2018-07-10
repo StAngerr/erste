@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userService.login(this.model).subscribe((data) => {
+    this.userService.login(this.model).subscribe((data: any) => {
       this.resultMsg = data.success;
     });
   }
