@@ -19,6 +19,10 @@ import { GoodsComponent } from './components/goods/goods.component';
 import { AuthGuard } from './guards/auth-guard'
 import { AuthService } from './services/auth.service';
 
+import { AngularMaterialModule } from './modules/angular-material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,15 +35,18 @@ import { AuthService } from './services/auth.service';
     GoodsComponent
   ],
   imports: [
+    AngularMaterialModule,
+    BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FlexLayoutModule,
     RouterModule.forRoot(
       appRoutes,
       //{ enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [AuthGuard, AuthService, UsersService, httpInterceptorProviders],
-  bootstrap: [AppComponent]
+  providers: [ AuthGuard, AuthService, UsersService, httpInterceptorProviders ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

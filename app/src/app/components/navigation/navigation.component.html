@@ -1,17 +1,17 @@
-<nav>
-  <ul>
-    <li> <a href="#" routerLink="/home">home</a></li>
-    <li>menu1</li>
-    <li>
-      <a href="#" routerLink="/goods">goods</a>
-    </li>
-    <li>menu3</li>
-  </ul>
+<section class="menu">
+  <button mat-button [matMenuTriggerFor]="menu">Home</button>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/home">home</a>
+    <a mat-menu-item routerLink="/goods">goods</a>
+  </mat-menu>
+  <button mat-button >
+    <a mat-menu-item routerLink="/signup">Register</a>
+  </button>
   <section class="account-block">
-    <div>
-      <a href="#" routerLink="/login">login</a>
-      <span>/</span>
-      <a href="#" routerLink="/signup">signup</a>
-    </div>
+    <mat-chip-list>
+      <mat-chip><a routerLink="/login">login</a></mat-chip>
+      <mat-chip><a routerLink="/signup">signup</a></mat-chip>
+    </mat-chip-list>
   </section>
-</nav>
+</section>
+
