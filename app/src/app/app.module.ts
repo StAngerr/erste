@@ -22,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { AngularMaterialModule } from './modules/angular-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { PortalComponent } from './components/portal/portal.component';
+import { PortalCardComponent } from './components/portal/portal-card/portal-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    GoodsComponent
+    GoodsComponent,
+    PortalComponent,
+    PortalCardComponent
   ],
   imports: [
     AngularMaterialModule,

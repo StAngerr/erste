@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
 
 export interface Tile {
   cols: number;
@@ -11,11 +13,8 @@ export interface Tile {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  tiles: Tile[] = [
-    { cols: 4, rows: 1 },
-    { cols: 1, rows: 1 },
-    { cols: 3, rows: 1 },
-    { cols: 4, rows: 1 },
-  ];
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('thumbs-up', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbs-up.svg'));
+    iconRegistry.addSvgIcon('thumbs-down', sanitizer.bypassSecurityTrustResourceUrl('assets/icons/thumbs-down.svg'));
+  }
 }

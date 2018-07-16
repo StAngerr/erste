@@ -1,0 +1,17 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.page-header {
+  height: 10% ;
+}
+
+.page-content {
+  height: 80% ;
+}
+
+.page-footer {
+  height: 10% ;
+}

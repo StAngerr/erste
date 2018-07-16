@@ -1,0 +1,11 @@
+<mat-card>
+  <section>
+    <h1>{{portal.getName()}} </h1>
+    <h2>{{portal.getUrl()}}</h2>
+    <p>Votes: {{portal.getVotes()}}</p>
+  </section>
+  <section>
+    <button mat-button (click)="voteDown()"><mat-icon svgIcon="thumbs-down"></mat-icon></button>
+    <button mat-button (click)="voteUp()"><mat-icon svgIcon="thumbs-up"></mat-icon></button>
+  </section>
+</mat-card>
