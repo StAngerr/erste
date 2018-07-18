@@ -24,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PortalComponent } from './components/portal/portal.component';
 import { PortalCardComponent } from './components/portal/portal-card/portal-card.component';
+import { ArticlesModule } from './modules/articles/articles.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PortalCardComponent } from './components/portal/portal-card/portal-card
     PortalCardComponent
   ],
   imports: [
+    ArticlesModule,
     AngularMaterialModule,
     BrowserAnimationsModule,
     BrowserModule,

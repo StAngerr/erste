@@ -7,6 +7,7 @@ import { register } from './components/register/register.routes';
 import { login } from './components/login/login.routes';
 import { goods } from './components/goods/goods.routes';
 import { PortalComponent } from './components/portal/portal.component';
+import { ArticlesListComponent } from './modules/articles/componetns/articles-list/articles-list.component';
 
 
 const defaultRouts = {
@@ -23,6 +24,7 @@ export const appRoutes: Routes = [
   home,
   register,
   { path: 'portal', component: PortalComponent },
+  { path: 'articles', component: ArticlesListComponent },
   login,
   Object.assign(goods, canActivate),
   defaultRouts

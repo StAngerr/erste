@@ -1,0 +1,12 @@
+<app-resource-info-panel></app-resource-info-panel>
+<mat-accordion *ngIf="articles && articles.length">
+  <mat-expansion-panel *ngFor="let article of articles">
+    <mat-expansion-panel-header>
+      {{article.articleName}}
+    </mat-expansion-panel-header>
+    <mat-panel-description>
+      {{article.articleCategory}}
+    </mat-panel-description>
+    <p>{{article.articleText}}</p>
+  </mat-expansion-panel>
+</mat-accordion>

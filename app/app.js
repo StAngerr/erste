@@ -1,13 +1,14 @@
 const express = require('express'),
- config = require('./config/database'),
- path = require('path'),
- logger = require('morgan'),
- mongoose = require('mongoose'),
- bodyParser = require('body-parser'),
- passport = require('passport'),
- api = require('./routes/api'),
- user = require('./routes/user'),
- app = express();
+  config = require('./config/database'),
+  path = require('path'),
+  logger = require('morgan'),
+  mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
+  passport = require('passport'),
+  api = require('./routes/api'),
+  user = require('./routes/user'),
+  articles = require('./routes/articles'),
+  app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/erste')));
 app.use(passport.initialize());
 app.use('/api', api);
 app.use('/users', user);
+app.use('/articles', articles);
 app.use('*', express.static(path.join(__dirname, 'dist/erste')));
 
 mongoose.Promise = require('bluebird');
