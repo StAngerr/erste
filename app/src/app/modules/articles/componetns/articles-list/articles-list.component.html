@@ -3,6 +3,7 @@
   <mat-expansion-panel *ngFor="let article of articles">
     <mat-expansion-panel-header>
       {{article.articleName}}
+      <button mat-button (click)="editArticle(article)"> Edit</button>
     </mat-expansion-panel-header>
     <mat-panel-description>
       {{article.articleCategory}}

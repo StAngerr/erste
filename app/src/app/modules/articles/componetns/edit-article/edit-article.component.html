@@ -1,0 +1,22 @@
+<div class="example-container">
+  <h3>Edit {{article.articleName}}</h3>
+  <mat-form-field>
+    <input [(ngModel)]="article.articleName" matInput placeholder="Input">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea [(ngModel)]="article.articleText" matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select [(ngModel)]="article.articleCategory" placeholder="Select">
+      <mat-option value="movie">Movie</mat-option>
+      <mat-option value="sport">Sport</mat-option>
+      <mat-option value="football">Football</mat-option>
+      <mat-option value="tennis">Tennis</mat-option>
+      <mat-option value="politic">Politic</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button (click)="saveArticle()">Save</button>
+</div>
